@@ -7,8 +7,20 @@ How to use
 ==========
 
 ```
-perl pubmed.cgi <arry-of-pubmedids>
+perl pubmed.cgi --ids 9783223,8692918
+perl pubmed.cgi --ids 9783223 --ids 8692918
 ```
+
+Other flags
+==========
+
+| Option          | Use                  |
+| --------------- |:--------------------:|
+| --abstract, -a  | toggles the abstract | 
+
+
+Searching
+========
 
 Currently there's no support for searching on pubmed. If you're interested, have a look at `query.cgi`.
 
