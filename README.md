@@ -16,7 +16,7 @@ Other flags
 
 | Option          | Use                  |
 | --------------- |:--------------------:|
-| --abstract, -a  | toggles the abstract | 
+| `--abstract,` `-a`  | toggles the abstract | 
 
 
 Searching
