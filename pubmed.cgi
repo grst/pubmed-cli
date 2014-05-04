@@ -7,6 +7,7 @@
 #use lib './';
 use LWP::UserAgent;
 use entrez;
+use Getopt::Long;
 use texmedconfig qw($proxy $user $passwd $tmp $web_view $ArticleLinkOut $DbNames);
 $| = 1;
 
@@ -36,15 +37,20 @@ sub strip_accents {
 }
 
 my $ua = new LWP::UserAgent;
-$ua->proxy(['http'] => $proxy) if ( $proxy );
 
-#$result = GetOptions( "file=s"   => \$pmid);      # string
+$abstr = 0;
+@ids = ();
 
-my @uids = @ARGV;
-#print STDERR "PMIDS: ", join(', ', @uids), "\n";
-my @refs = entrez::get_references($ua, @uids);
-if ( @refs != @uids ) {
-   my $diff = @uids - @refs;
+GetOptions( "ids=s" => \@ids,
+	'abstract|a' => \$abstr);
+@ids= split(/,/,join(',',@ids));
+#use Data::Dumper;
+#print Dumper(@ids);
+#print $abstr;
+#print STDERR "PMIDS: ", join(', ', @ids), "\n";
+my @refs = entrez::get_references($ua, @ids);
+if ( @refs != @ids) {
+   my $diff = @ids- @refs;
    print "<b>WARNING: could't fetch entries for $diff references!\n</b><p>";
 }
 
@@ -71,7 +77,6 @@ sub exportBibTeX {
   my @badUIDs;
   my @formated;
 
-  $abstr = 0;
   #print "ENTRIES = ", scalar(@entries), "<p>\n";
 
   foreach my $e ( @entries ) {
