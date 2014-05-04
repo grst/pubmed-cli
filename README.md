@@ -9,6 +9,7 @@ How to use
 ```
 perl pubmed.cgi --ids 9783223,8692918
 perl pubmed.cgi --ids 9783223 --ids 8692918
+perl pubmed.cgi --ids 9783223 >> your-bibliography.bib
 ```
 
 Other flags
