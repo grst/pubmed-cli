@@ -3,7 +3,14 @@ pubmed-cli
 
 This is just a quick and dirty solution to access pubmed via CLI.
 
+How to use
+==========
 
+```
+perl pubmed.cgi <arry-of-pubmedids>
+```
+
+Currently there's no support for searching on pubmed. If you're interested, have a look at `query.cgi`.
 
 License
 =======
