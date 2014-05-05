@@ -9,6 +9,7 @@ How to use
 ```
 perl pubmed.cgi --ids 9783223,8692918
 perl pubmed.cgi --ids 9783223 --ids 8692918
+perl pubmed.cgi --ids 9783223 >> your-bibliography.bib
 ```
 
 Other flags
@@ -40,4 +41,4 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-This is based on the original (texmed)[http://www.bioinformatics.org/texmed/] by Arne Muller.
+This is based on the original [texmed](http://www.bioinformatics.org/texmed/) by Arne Muller.
