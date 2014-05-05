@@ -6,6 +6,8 @@
 
 #use lib './';
 use LWP::UserAgent;
+use FindBin;
+use lib "$FindBin::Bin/../texmed";
 use entrez;
 use Getopt::Long;
 use texmedconfig qw($proxy $user $passwd $tmp $web_view $ArticleLinkOut $DbNames);
