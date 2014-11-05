@@ -120,8 +120,11 @@ sub exportBibTeX {
        }
     }
 
-	#  my $record = "% $e->{PMID} \n";
-    $record .= qq/\@Article{pmid$e->{PMID},
+	#  my $record = "% $e->{PMID} \n"a;
+    $short_title = lc((split(/\s+/, $title))[0]);
+    $short_title =~ s/\W//gi;
+    $bibid = lc((split(/\W+/, $author))[0]) . $e->{Year} . $short_title;
+    $record .= qq/\@Article{$bibid},
    Author="$author",
    Title="{$title}",
    Journal="$e->{JournalTitle}",
