@@ -8,6 +8,8 @@
 use LWP::UserAgent;
 use FindBin;
 use lib "$FindBin::Bin/../texmed";
+use File::Basename;
+BEGIN {push @INC, dirname(__FILE__)};
 use entrez;
 use Getopt::Long;
 use texmedconfig qw($proxy $user $passwd $tmp $web_view $ArticleLinkOut $DbNames);
@@ -124,7 +126,7 @@ sub exportBibTeX {
     $short_title = lc((split(/\s+/, $title))[0]);
     $short_title =~ s/\W//gi;
     $bibid = lc((split(/\W+/, $author))[0]) . $e->{Year} . $short_title;
-    $record .= qq/\@Article{$bibid},
+    $record .= qq/\@Article{$bibid,
    Author="$author",
    Title="{$title}",
    Journal="$e->{JournalTitle}",
